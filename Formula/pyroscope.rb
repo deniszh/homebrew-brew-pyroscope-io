@@ -45,14 +45,12 @@ class Pyroscope < Formula
   end
 
   service do
-    run [
-      bin"/pyroscope", "server", 
-        "--config", etc/"/pyroscope/server.yml"
-    ]
+    run [bin"/pyroscope", "server", "--config", etc/"/pyroscope/server.yml"]
     working_dir var/"/lib/pyroscope"
     keep_alive successful_exit: false
     log_path var/"/log/pyroscope/server-stderr.log"
     error_log_path var/"/log/pyroscope/server-stderr.log"
+  end
 
   test do
     require "pty"
